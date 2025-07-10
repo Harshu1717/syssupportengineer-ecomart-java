@@ -45,9 +45,10 @@ public class PricePlanComparatorController {
         pricePlanComparisons.put(PRICE_PLAN_ID_KEY, pricePlanId);
         pricePlanComparisons.put(PRICE_PLAN_COMPARISONS_KEY, consumptionsForPricePlans.get());
 
-        return consumptionsForPricePlans.isPresent()
+        /*return consumptionsForPricePlans.isPresent()
                 ? ResponseEntity.ok(pricePlanComparisons)
-                : ResponseEntity.notFound().build();
+                : ResponseEntity.notFound().build();*/
+        return ResponseEntity.ok(pricePlanComparisons);
     }
 
     @GetMapping("/recommend/{smartMeterId}")
@@ -61,7 +62,7 @@ public class PricePlanComparatorController {
         }
 
         List<Map.Entry<String, BigDecimal>> recommendations = new ArrayList<>(consumptionsForPricePlans.get().entrySet());
-        recommendations.sort(Comparator.comparing((Map.Entry<String, BigDecimal> entry) -> entry.getValue()).reversed());
+        recommendations.sort(Comparator.comparing((Map.Entry<String, BigDecimal> entry) -> entry.getValue()));
         if (limit != null && limit < recommendations.size()) {
             recommendations = recommendations.subList(0, limit);
         }

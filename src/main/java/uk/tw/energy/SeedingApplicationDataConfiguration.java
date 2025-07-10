@@ -24,6 +24,7 @@ public class SeedingApplicationDataConfiguration {
     private static final String MOST_EVIL_PRICE_PLAN_ID = "price-plan-0";
     private static final String RENEWABLES_PRICE_PLAN_ID = "price-plan-1";
     private static final String STANDARD_PRICE_PLAN_ID = "price-plan-2";
+    private static final String HARSHITA_PRICE_PLAN_ID = "price-plan-3";
 
     @Bean
     public List<PricePlan> pricePlans() {
@@ -31,6 +32,7 @@ public class SeedingApplicationDataConfiguration {
         pricePlans.add(new PricePlan(MOST_EVIL_PRICE_PLAN_ID, "Dr Evil's Dark Energy", BigDecimal.TEN, emptyList()));
         pricePlans.add(new PricePlan(RENEWABLES_PRICE_PLAN_ID, "The Green Eco", BigDecimal.valueOf(2), emptyList()));
         pricePlans.add(new PricePlan(STANDARD_PRICE_PLAN_ID, "Power for Everyone", BigDecimal.ONE, emptyList()));
+        pricePlans.add(new PricePlan(HARSHITA_PRICE_PLAN_ID, "Power for Self", BigDecimal.valueOf(5), emptyList()));
         return pricePlans;
     }
 
@@ -52,6 +54,7 @@ public class SeedingApplicationDataConfiguration {
         smartMeterToPricePlanAccounts.put("smart-meter-2", MOST_EVIL_PRICE_PLAN_ID);
         smartMeterToPricePlanAccounts.put("smart-meter-3", STANDARD_PRICE_PLAN_ID);
         smartMeterToPricePlanAccounts.put("smart-meter-4", RENEWABLES_PRICE_PLAN_ID);
+        smartMeterToPricePlanAccounts.put("smart-meter-5", HARSHITA_PRICE_PLAN_ID);
         return smartMeterToPricePlanAccounts;
     }
 
